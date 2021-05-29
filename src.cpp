@@ -2,6 +2,7 @@
 #include "screenOutput.h"
 
 int main(void) {
+	SetConsoleCP(CP_UTF8);
 	setlocale(LC_ALL, "Russian");
 
 	auto wantTests = Menu::YES;
