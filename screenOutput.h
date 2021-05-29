@@ -8,7 +8,9 @@
 //Класс для вывода данных на экран
 class ScreenOutput {
 public:
-	void Output(Text &object);
+	void TextOutput(Text &object);
+
+	void SubstrOutput(Text &firstObject, Text &secondObject);
 };
 
 #endif // !SCREENOUTPUT_H

@@ -3,7 +3,6 @@
 #include <iostream>
 #include <limits>
 #include "manualInput.h"
-#include "randomInput.h"
 #include "fileInput.h"
 #include "fileOutput.h"
 
@@ -19,7 +18,6 @@ enum class Menu {
 enum class InputType {
 	MANUAL = 0,
 	FILE = 1,
-	RANDOM = 2
 };
 
 //¬вод с клавиатуры

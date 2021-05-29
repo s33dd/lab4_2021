@@ -1,15 +1,16 @@
 #include "menu.h"
 #include "screenOutput.h"
+#include "functions.h"
 
 int main(void) {
-	SetConsoleCP(CP_UTF8);
-	setlocale(LC_ALL, "Russian");
+	SetConsoleOutputCP(1251);
+	SetConsoleCP(1251);
 
 	auto wantTests = Menu::YES;
 	auto wantContinue = Menu::YES;
 	auto wantSave = Menu::YES;
 	auto wantRewrite = Menu::YES;
-	auto inputType = InputType::RANDOM;
+	auto inputType = InputType::MANUAL;
 	bool dataReaded = false;
 
 	do {
@@ -24,13 +25,27 @@ int main(void) {
 		inputType = InputAsk();
 
 		ManualInput manual;
-		Text text;
+		Text firstText;
+		Text secondText;
 		ScreenOutput console;
+		
+		std::cout << "¬ведите первый текст:" << std::endl;
+		manual.Input(firstText);
 
-		manual.Input(text);
+		std::cout << "¬ведите второй текст:" << std::endl;
+		manual.Input(secondText);
 
-		console.Output(text);
+		std::cout << "ѕервый текст:" << std::endl;
+		console.TextOutput(firstText);
 
+		std::cout << "¬торой текст:" << std::endl;
+		console.TextOutput(secondText);
+
+		
+		FindSubstr(firstText, secondText);
+
+		console.SubstrOutput(firstText, secondText);
+		
 		wantContinue = RepeatAsk();
 
 	} while (wantContinue == Menu::YES);

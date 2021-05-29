@@ -27,7 +27,7 @@ bool RightMenuChoice(Menu choice) {
 }
 
 bool RightInputChoice(InputType choice) {
-	if ((choice == InputType::RANDOM) || (choice == InputType::MANUAL) || (choice == InputType::FILE)) {
+	if ((choice == InputType::MANUAL) || (choice == InputType::FILE)) {
 		return true;
 	}
 	else {
@@ -49,7 +49,7 @@ Menu ModularTestsAsk(void) {
 
 InputType InputAsk(void) {
 	std::cout << " ак вы желаете заполнить массив?" << std::endl;
-	std::cout << "2 Ч —лучайными числами / 1 Ч »з файла / 0 Ч — клавиатуры" << std::endl;
+	std::cout << "1 Ч »з файла / 0 Ч — клавиатуры" << std::endl;
 	std::cout << "¬аш выбор: ";
 	InputType decision = static_cast<InputType>(GetInput<int>());
 	while (!RightInputChoice(decision)) {
