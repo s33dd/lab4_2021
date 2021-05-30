@@ -73,3 +73,67 @@ void FindSubstr(Text &text1, Text &text2) {
 	text1.SetSubstrPosition(firstText.find(found) + 1);
 	text2.SetSubstrPosition(secondText.find(found) + 1);
 }
+
+void ReadFromFile(Text& object) {
+	bool dataReaded = false;
+	std::string path;
+	
+	std::cout << "Âגוהטעו טלÿ פאיכא:" << std::endl;
+	path = GetInput<std::string>();
+	FileWork checkFile(path);
+	
+	while (checkFile.NameForbidden()) {
+		std::cout << "Âגוהטעו םמגמו טלÿ פאיכא:" << std::endl;
+		path = checkFile.ChangeName();
+	}
+	
+	FileInput input(path);
+	
+	dataReaded = input.Input(object);
+	while (!dataReaded) {
+		std::cout << "Âגוהטעו םמגמו טלÿ פאיכא:" << std::endl;
+		path = input.ChangeName();
+		dataReaded = input.Input(object);
+	}
+}
+
+void WriteInFile(Text& object) {
+	std::string path;
+	Menu rewrite = Menu::YES;
+
+	std::cout << "Âגוהטעו טלÿ פאיכא:" << std::endl;
+	FileWork inputSaveFile(path);
+	while (!inputSaveFile.SaveFileNormal()) {
+		std::cout << "Âגוהטעו םמגמו טלÿ פאיכא:" << std::endl;
+		path = inputSaveFile.ChangeName();
+	}
+	
+	rewrite = RewriteAsk(path);
+	
+	if (rewrite == Menu::YES) {
+		std::string newFilePath = path;
+		FileWork newInputSave(newFilePath);
+		
+		while (newFilePath == path) {
+			std::cout << "Âגוהטעו םמגמו טלÿ פאיכא:" << std::endl;
+			newFilePath = newInputSave.ChangeName();
+			while (!newInputSave.SaveFileNormal()) {
+				std::cout << "Âגוהטעו םמגמו טלÿ פאיכא:" << std::endl;
+				newFilePath = newInputSave.ChangeName();
+			}
+		}
+		
+		FileOutput file(newFilePath);
+		file.SaveData(object);
+	}
+	
+	else {
+		while (inputSaveFile.FileReadOnly()) {
+			std::cout << "Âגוהטעו םמגמו טלÿ פאיכא:" << std::endl;
+			path = inputSaveFile.ChangeName();
+		}
+		
+		FileOutput file(path);
+		file.SaveData(object);
+	}
+}

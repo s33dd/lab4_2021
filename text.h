@@ -24,6 +24,8 @@ public:
 	void SetSubstrPosition(int position);
 
 	void SetSubstring(std::string substr);
+	
 	friend class ScreenOutput;
+	friend class FileOutput;
 };
 #endif // TEXT_H

@@ -2,6 +2,7 @@
 #define FILEINPUT_H
 
 #include "file.h"
+#include "text.h"
 
 //Класс FileInput для ввода из файла
 class FileInput {
@@ -9,7 +10,7 @@ class FileInput {
 public:
 	explicit FileInput(std::string path);
 
-	bool Input(void); //Добавить что принимает
+	bool Input(Text &object);
 
 	std::string ChangeName(void);
 };
