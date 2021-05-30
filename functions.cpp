@@ -6,6 +6,9 @@ void CleanUp(std::string &str) {
 	while(str[firstChar] == space) {
 		str.erase(firstChar, 1);
 	}
+	if(str.empty()) {
+		return;
+	}
 	int lastChar = str.length() - 1;
 	while(str[lastChar] == space) {
 		str.erase(lastChar, 1);
