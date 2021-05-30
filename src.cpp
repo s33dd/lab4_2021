@@ -22,6 +22,7 @@ int main(void) {
 
 		//¬вод текстов
 		inputType = InputAsk();
+		std::cout << "ƒл€ ввода кириллицы из файла стоит использовать файлы в кодировке ANSI." << std::endl;
 
 		Text firstText;
 		Text secondText;
