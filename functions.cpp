@@ -54,6 +54,7 @@ void FindSubstr(Text &text1, Text &text2) {
 							}
 							else {
 								matched = false;
+								CleanUp(temp);
 								if (temp.length() > found.length()) {
 									found = temp;
 								}
@@ -67,7 +68,7 @@ void FindSubstr(Text &text1, Text &text2) {
 		}
 	}
 	
-	CleanUp(found);
+	//CleanUp(found);
 	text1.SetSubstring(found);
 	text2.SetSubstring(found);
 	text1.SetSubstrPosition(firstText.find(found) + 1);
@@ -102,6 +103,7 @@ void WriteInFile(Text& object) {
 	Menu rewrite = Menu::YES;
 
 	std::cout << "Âגוהטעו טלÿ פאיכא:" << std::endl;
+	path = GetInput<std::string>();
 	FileWork inputSaveFile(path);
 	while (!inputSaveFile.SaveFileNormal()) {
 		std::cout << "Âגוהטעו םמגמו טלÿ פאיכא:" << std::endl;
