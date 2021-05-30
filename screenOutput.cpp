@@ -10,8 +10,8 @@ void ScreenOutput::SubstrOutput(Text &firstObject, Text &secondObject) {
 	std::cout << "Найденная строка:" << std::endl;
 	std::cout << firstObject.GetSubstr() << std::endl << std::endl;
 
-	std::cout << "Позиция в первом тексте: " << firstObject.GetPosition() << std::endl;
-	std::cout << "Позиция во втором тексте: " << secondObject.GetPosition() << std::endl << std::endl;
+	std::cout << "В первом тексте строка начинается с " << firstObject.GetPosition() << " символа." << std::endl;
+	std::cout << "Во втором тексте строка начинается с " << secondObject.GetPosition() << " символа." << std::endl << std::endl;
 
 	std::cout << "Длина строки: " << firstObject.GetSubstr().length() << std::endl;
 }

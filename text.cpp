@@ -21,9 +21,7 @@ int Text::GetPosition(void) const {
 }
 
 void Text::SetSubstrPosition(int position) {
-	if (position <= static_cast<int>(m_substring.length())) {
-		m_substrPosition = position;
-	}
+	m_substrPosition = position;
 }
 
 void Text::SetSubstring(std::string substr) {

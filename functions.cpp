@@ -1,5 +1,17 @@
 #include "functions.h"
 
+void CleanUp(std::string &str) {
+	char space = *" ";
+	int firstChar = 0;
+	while(str[firstChar] == space) {
+		str.erase(firstChar, 1);
+	}
+	int lastChar = str.length() - 1;
+	while(str[lastChar] == space) {
+		str.erase(lastChar, 1);
+	}
+}
+
 void FindSubstr(Text &text1, Text &text2) {
 	std::vector<std::string> first = text1.GetText();
 	std::vector<std::string> second = text2.GetText();
@@ -51,11 +63,10 @@ void FindSubstr(Text &text1, Text &text2) {
 			}
 		}
 	}
-
+	
+	CleanUp(found);
 	text1.SetSubstring(found);
 	text2.SetSubstring(found);
-
-	int pos = firstText.find(found);
-	//text1.SetSubstrPosition(firstText.find(found));
-	//text2.SetSubstrPosition(secondText.find(found));
+	text1.SetSubstrPosition(firstText.find(found) + 1);
+	text2.SetSubstrPosition(secondText.find(found) + 1);
 }
