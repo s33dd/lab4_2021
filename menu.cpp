@@ -48,7 +48,7 @@ Menu ModularTestsAsk(void) {
 }
 
 InputType InputAsk(void) {
-	std::cout << "Как вы желаете заполнить массив?" << std::endl;
+	std::cout << "Как вы желаете ввести текст?" << std::endl;
 	std::cout << "1 — Из файла / 0 — С клавиатуры" << std::endl;
 	std::cout << "Ваш выбор: ";
 	InputType decision = static_cast<InputType>(GetInput<int>());

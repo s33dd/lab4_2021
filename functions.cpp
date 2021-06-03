@@ -53,6 +53,8 @@ void FindSubstr(Text &text1, Text &text2) {
 								}
 							}
 							else {
+								z = secondText.length();
+								k = firstText.length();
 								matched = false;
 								CleanUp(temp);
 								if (temp.length() > found.length()) {
@@ -62,20 +64,20 @@ void FindSubstr(Text &text1, Text &text2) {
 							}
 						}
 					}
+					CleanUp(temp);
 					matched = false;
 				}
 			}
 		}
 	}
 	
-	//CleanUp(found);
 	text1.SetSubstring(found);
 	text2.SetSubstring(found);
 	text1.SetSubstrPosition(firstText.find(found) + 1);
 	text2.SetSubstrPosition(secondText.find(found) + 1);
 }
 
-void ReadFromFile(Text& object) {
+void ReadFromFile(Text &object) {
 	bool dataReaded = false;
 	std::string path;
 	

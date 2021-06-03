@@ -1,5 +1,6 @@
 #include "screenOutput.h"
 #include "functions.h"
+#include "tests.h"
 
 int main(void) {
 	SetConsoleOutputCP(1251);
@@ -15,15 +16,18 @@ int main(void) {
 		StartInformation();
 		std::string filePath = "nothing";
 
-		//wantTests = ModularTestsAsk();
-		//if (wantTests == MENU::YES) {
-		//	//сделать тесты
-		//}
+		wantTests = ModularTestsAsk();
+		if (wantTests == Menu::YES) {
+			MakeTests();
+		}
 
 		//Ввод текстов
 		inputType = InputAsk();
-		std::cout << "Для ввода кириллицы из файла стоит использовать файлы в кодировке ANSI." << std::endl;
-
+		
+		if (inputType == InputType::FILE) {
+			std::cout << "Для ввода кириллицы из файла стоит использовать файлы в кодировке ANSI." << std::endl;
+		}
+		
 		Text firstText;
 		Text secondText;
 
