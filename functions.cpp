@@ -9,7 +9,7 @@ void CleanUp(std::string &str) {
 	if(str.empty()) {
 		return;
 	}
-	int lastChar = str.length() - 1;
+	int lastChar = static_cast<int>(str.length() - 1);
 	while(str[lastChar] == space) {
 		str.erase(lastChar, 1);
 	}
@@ -53,8 +53,8 @@ void FindSubstr(Text &text1, Text &text2) {
 								}
 							}
 							else {
-								z = secondText.length();
-								k = firstText.length();
+								z = static_cast<int>(secondText.length());
+								k = static_cast<int>(firstText.length());
 								matched = false;
 								CleanUp(temp);
 								if (temp.length() > found.length()) {
@@ -73,8 +73,8 @@ void FindSubstr(Text &text1, Text &text2) {
 	
 	text1.SetSubstring(found);
 	text2.SetSubstring(found);
-	text1.SetSubstrPosition(firstText.find(found) + 1);
-	text2.SetSubstrPosition(secondText.find(found) + 1);
+	text1.SetSubstrPosition(static_cast<int>(firstText.find(found)) + 1);
+	text2.SetSubstrPosition(static_cast<int>(secondText.find(found)) + 1);
 }
 
 void ReadFromFile(Text &object) {
